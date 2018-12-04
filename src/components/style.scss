@@ -4,26 +4,65 @@
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
 
-.gradientBg {
-	display: flex;
-	background: linear-gradient(to right, $primary-color, $secondary-color);
+.hero-bg {
+  display: flex;
+  background: url(../images/hero-bg.png);
 }
 
 .center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
-	display: flex;
-	padding: 1.5rem 1.5rem;
-	line-height: 1.5rem;
-	a {
-		border-bottom: 1px solid;
+  display: flex;
+  padding: 1.5rem 1.5rem;
+  line-height: 1.5rem;
+  a {
 		color: black;
-	}
-	a:hover {
-		color: $secondary-color;
-	}
+		margin-right: 8px;
+  }
+  a:hover {
+    color: $secondary-color;
+  }
+}
+
+.has-border-tb {
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.py-16 {
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+.mb-16 {
+	margin-bottom: 16px;
+}
+
+.mr-36 {
+  margin-right: 36px;
+}
+.mt-280 {
+	margin-top: 280px;
+}
+
+.hero-button {
+  border-radius: 0px;
+  font-weight: 600;
+}
+
+.has-layout-border {
+	border-left: 20px solid $black;
+	border-right: 20px solid $black;
+}
+
+.has-list-style-none {
+	list-style: none !important;
 }

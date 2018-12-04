@@ -7,7 +7,7 @@ import Midsection from './midsection';
 import Footer from './footer';
 
 const Layout = ({ children }) => (
-	<div>
+	<div className="has-layout-border">
 		<Helmet />
 		<Header />
 		<Midsection />
