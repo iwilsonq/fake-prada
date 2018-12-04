@@ -6,6 +6,7 @@ module.exports = {
 		description: 'A Project to bootstrap your next Gatsby + Bulma site.',
 		keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter`,
 		twitter: 'https://twitter.com/dennis__xing',
+		instagram: 'https://instagram.com/dennis__xing',
 		xingdesign: 'https://xing--design.com/',
 		siteUrl: `https://www.example.com`
 	},
