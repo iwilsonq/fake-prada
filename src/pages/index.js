@@ -1,7 +1,13 @@
-import React from 'react';
+import React from 'react'
+import Hero from '../components/hero'
+import Midsection from '../components/midsection'
+import Layout from '../components/layout'
 
-import Layout from '../components/layout';
+const IndexPage = () => (
+  <Layout fullNavbar>
+    <Hero />
+    <Midsection />
+  </Layout>
+)
 
-const IndexPage = () => <Layout />;
-
-export default IndexPage;
+export default IndexPage

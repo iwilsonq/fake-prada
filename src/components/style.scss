@@ -37,9 +37,19 @@
   width: 100%;
 }
 
+.no-bg {
+  background: none;
+  border: none;
+}
+
 .py-16 {
 	padding-top: 16px;
 	padding-bottom: 16px;
+}
+
+.my-72 {
+  margin-top: 72px;
+  margin-bottom: 72px;
 }
 
 .mb-16 {

@@ -1,18 +1,19 @@
-import React from 'react';
+import React from 'react'
+import Helmet from './helmet'
 
-import './style.scss';
-import Helmet from './helmet';
-import Header from './header';
-import Midsection from './midsection';
-import Footer from './footer';
+import Footer from './footer'
+import { Navbar } from './Navbar'
+import './style.scss'
 
-const Layout = ({ children }) => (
-	<div className="has-layout-border">
-		<Helmet />
-		<Header />
-		<Midsection />
-		<Footer />
-	</div>
-);
+const Layout = ({ children, fullNavbar }) => {
+  return (
+    <div className={fullNavbar ? 'has-layout-border' : ''}>
+      <Helmet />
+      <Navbar fullNavbar={fullNavbar} />
+      {children}
+      <Footer />
+    </div>
+  )
+}
 
-export default Layout;
+export default Layout

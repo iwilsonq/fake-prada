@@ -10,6 +10,7 @@ const Footer = () => (
         site {
           siteMetadata {
             twitter
+						instagram
           }
         }
       }
@@ -38,20 +39,15 @@ const Footer = () => (
                   <ul className="is-marginless has-list-style-none">
                     <li>
                       <a
-                        href="/product"
+                        href="/products"
                         className="is-uppercase has-text-white is-size-7"
                       >
                         Product
                       </a>
                     </li>
                     <li>
-                      <a href="/men" className="has-text-white is-size-7">
-                        Men
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/women" className="has-text-white is-size-7">
-                        Women
+                      <a href="/ready-to-wear" className="has-text-white is-size-7">
+                        Ready to Wear
                       </a>
                     </li>
                   </ul>
