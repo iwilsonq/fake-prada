@@ -8,7 +8,7 @@ module.exports = {
 		twitter: 'https://twitter.com/dennis__xing',
 		instagram: 'https://instagram.com/dennis__xing',
 		xingdesign: 'https://xing--design.com/',
-		siteUrl: `https://www.example.com`
+		siteUrl: 'https://www.example.com'
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',

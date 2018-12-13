@@ -7,8 +7,6 @@ import { Product } from '../components/Product'
 
 setConfig({ pureSFC: true })
 
-console.log(process.env)
-
 const useProducts = () => {
   const [products, setProducts] = useState([])
 
