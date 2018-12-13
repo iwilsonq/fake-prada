@@ -1,3 +1,4 @@
+console.log('process.env',process.env)
 module.exports = {
 	siteMetadata: {
 		title: 'Dennis Xing',
