@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import Client from 'shopify-buy'
 
-// You can delete this file if you're not using it
+export const onInitialClientRender = () => {
+  const shopifyConfig = {
+    domain: process.env.SHOPIFY_DOMAIN,
+    storefrontAccessToken: process.env.SHOPIFY_STOREFRONT_TOKEN
+  }
+  console.log('gatsby-browser', shopifyConfig)
+
+  window.shopify = Client.buildClient(shopifyConfig)
+}

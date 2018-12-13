@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { setConfig } from 'react-hot-loader'
 
-import shopify from '../services/shopify'
 import Layout from '../components/layout'
 import { Product } from '../components/Product'
 
@@ -11,7 +10,7 @@ const useProducts = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    shopify.product
+    window.shopify.product
       .fetchAll()
       .then(products => {
         return products.map(product => ({
