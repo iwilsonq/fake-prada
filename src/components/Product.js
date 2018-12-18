@@ -1,13 +1,17 @@
 import React from 'react'
 
 export const Product = props => {
+  const { title, image, price } = props
   return (
-    <article>
-      <img
-        style={{ width: '90%' }}
-        src={props.product.image.src}
-        alt={props.product.image.altText}
-      />
+    <article className="product-card">
+      <header>
+        <figure>
+          <img src={image.src} alt={image.altText} />
+        </figure>
+        <p>{title}</p>
+      </header>
+
+      <span>{`$ ${price}`}</span>
     </article>
   )
 }

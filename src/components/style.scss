@@ -4,6 +4,13 @@
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
 
+@import './product.scss';
+
+.full-container {
+  width: calc(100% - 56px);
+  margin: 72px 28px;
+}
+
 .hero-bg {
   display: flex;
   background: url(../images/hero-bg.png);

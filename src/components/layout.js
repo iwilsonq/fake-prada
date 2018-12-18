@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from './helmet'
 
 import Footer from './footer'
-import { Navbar } from './Navbar'
+import { Navbar } from './navbar'
 import './style.scss'
 
 const Layout = ({ children, fullNavbar }) => {

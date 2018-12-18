@@ -1,0 +1,21 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+
+  figure {
+    font-size: 14px;
+  }
+
+  span {
+    font-size: 16px;
+  }
+}
+
+.collection {
+  img {
+    height: 100%;
+  }
+}

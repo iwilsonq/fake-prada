@@ -5,7 +5,6 @@ export const onInitialClientRender = () => {
     domain: process.env.GATSBY_SHOPIFY_DOMAIN,
     storefrontAccessToken: process.env.GATSBY_SHOPIFY_STOREFRONT_TOKEN
   }
-  console.log('gatsby-browser', shopifyConfig)
 
   window.shopify = Client.buildClient(shopifyConfig)
 }

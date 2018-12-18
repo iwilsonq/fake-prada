@@ -2,49 +2,42 @@ import React, { useState, useEffect } from 'react'
 import { setConfig } from 'react-hot-loader'
 
 import Layout from '../components/layout'
-import { Product } from '../components/Product'
+import { Collection } from '../components/collection'
+import collectionOne from '../images/collection-1.jpg'
+import collectionTwo from '../images/collection-2.jpg'
 
 setConfig({ pureSFC: true })
 
-const useProducts = () => {
-  const [products, setProducts] = useState([])
+const useCollections = () => {
+  const [collections, setCollections] = useState([])
 
   useEffect(() => {
-    window.shopify.product
-      .fetchAll()
-      .then(products => {
-        return products.map(product => ({
-          id: product.id,
-          title: product.title,
-          description: product.description,
-          price: product.variants[0].price,
-          available: product.variants[0].available,
-          image: {
-            src: product.variants[0].image.src,
-            altText: product.variants[0].image.altText
+    window.shopify.collection
+      .fetchAllWithProducts()
+      .then(collections =>
+        collections.map((collection, i) => {
+          return {
+            ...collection,
+            image: i === 0 ? collectionOne : collectionTwo
           }
-        }))
-      })
-      .then(setProducts)
+        })
+      )
+      .then(setCollections)
       .catch(e => console.error(e))
   }, [])
 
-  return products
+  return collections
 }
 
 const ReadyToWearPage = () => {
-  const products = useProducts()
+  const collections = useCollections()
   return (
     <Layout>
-      <div className="container my-72">
+      <div className="full-container">
         <h1 className="title">Ready to Wear</h1>
-        <div className="columns">
-          {products.map(product => (
-            <div className="column" key={product.id}>
-              <Product product={product} />
-            </div>
-          ))}
-        </div>
+        {collections.map(collection => (
+          <Collection key={collection.id} collection={collection} />
+        ))}
       </div>
     </Layout>
   )
