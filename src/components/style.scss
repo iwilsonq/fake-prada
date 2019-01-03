@@ -6,6 +6,17 @@
 
 @import './product.scss';
 
+@font-face {
+  font-family: 'GT Eesti Pro';
+  src: url(/assets/GTEestiProText-Regular.otf);
+}
+
+html,
+body {
+  font-family: 'GT Eesti Pro';
+  color: #000;
+}
+
 .full-container {
   width: calc(100% - 56px);
   margin: 72px 28px;
@@ -22,16 +33,59 @@
   align-items: center;
 }
 
+.is-relative {
+  position: relative;
+}
+
+.pt-16 {
+  padding-top: 16px;
+}
+
 .footer {
   display: flex;
   padding: 1.5rem 1.5rem;
   line-height: 1.5rem;
   a {
-		color: black;
-		margin-right: 8px;
+    color: black;
+    margin-right: 8px;
   }
   a:hover {
     color: $secondary-color;
+  }
+
+  .newsletter-signup {
+    padding-left: 47px;
+    padding-right: 47px;
+    height: 100%;
+    line-height: 14px;
+    border-left: 1px solid $border;
+
+    span.newsletter-lead {
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: 12px;
+      padding-top: 4px;
+    }
+
+    span.floating-text {
+      cursor: text;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: 0.2s;
+    }
+
+    input {
+      appearance: none;
+      border: none;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #000;
+      width: 100%;
+
+      &:focus ~ span {
+        top: 24px;
+      }
+    }
   }
 }
 
@@ -50,8 +104,8 @@
 }
 
 .py-16 {
-	padding-top: 16px;
-	padding-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .my-72 {
@@ -60,14 +114,14 @@
 }
 
 .mb-16 {
-	margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .mr-36 {
   margin-right: 36px;
 }
 .mt-280 {
-	margin-top: 280px;
+  margin-top: 280px;
 }
 
 .hero-button {
@@ -76,10 +130,10 @@
 }
 
 .has-layout-border {
-	border-left: 20px solid $black;
-	border-right: 20px solid $black;
+  border-left: 20px solid $black;
+  border-right: 20px solid $black;
 }
 
 .has-list-style-none {
-	list-style: none !important;
+  list-style: none !important;
 }

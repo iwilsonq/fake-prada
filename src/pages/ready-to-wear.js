@@ -34,7 +34,7 @@ const ReadyToWearPage = () => {
   return (
     <Layout>
       <div className="full-container">
-        <h1 className="title">Ready to Wear</h1>
+        <h1 className="title has-text-black">Ready to Wear</h1>
         {collections.map(collection => (
           <Collection key={collection.id} collection={collection} />
         ))}

@@ -1,7 +1,27 @@
 import React from 'react'
 import { FaTwitter, FaInstagram } from 'react-icons/fa'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import './style.scss'
+
+const FooterLink = ({ to, label, className, uppercase }) => {
+  let initialClassName = 'is-size-7'
+
+  if (uppercase) {
+    initialClassName += ' is-uppercase'
+  }
+
+  if (className) {
+    initialClassName += ` ${className}`
+  }
+
+  return (
+    <li>
+      <Link to={to} className={initialClassName}>
+        {label}
+      </Link>
+    </li>
+  )
+}
 
 const Footer = () => (
   <StaticQuery
@@ -10,13 +30,13 @@ const Footer = () => (
         site {
           siteMetadata {
             twitter
-						instagram
+            instagram
           }
         }
       }
     `}
     render={data => (
-      <footer className="footer center has-background-black">
+      <footer className="footer center has-background-white">
         <div className="full-width">
           <div className="mb-16">
             <article className="media">
@@ -32,63 +52,68 @@ const Footer = () => (
               </span>
             </article>
           </div>
-          <div className="columns has-border-tb py-16">
+          <div className="columns has-border-tb">
             <div className="column is-three-fifths">
-              <div className="columns">
+              <div className="columns pt-16">
                 <div className="column">
                   <ul className="is-marginless has-list-style-none">
-                    <li>
-                      <a
-                        href="/products"
-                        className="is-uppercase has-text-white is-size-7"
-                      >
-                        Product
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/ready-to-wear" className="has-text-white is-size-7">
-                        Ready to Wear
-                      </a>
-                    </li>
+                    <FooterLink to="/products" label="Product" uppercase />
+                    <FooterLink to="/ready-to-wear" label="Ready to Wear" />
                   </ul>
                 </div>
                 <div className="column">
-                  <a
-                    href="/about"
-                    className="is-uppercase has-text-white is-size-7"
-                  >
-                    About us
-                  </a>
+                  <ul className="is-marginless has-list-style-none">
+                    <FooterLink to="/about" label="About Us" uppercase />
+                    <FooterLink
+                      to="/streetwear-manifesto"
+                      label="The Streetwear Manifesto"
+                    />
+                    <FooterLink to="/about" label="About" />
+                    <FooterLink to="/about" label="About" />
+                  </ul>
                 </div>
                 <div className="column">
-                  <a
-                    href="/legal"
-                    className="is-uppercase has-text-white is-size-7"
-                  >
-                    Legal
-                  </a>
+                  <ul className="is-marginless has-list-style-none">
+                    <FooterLink to="/legal" label="Legal" uppercase />
+                    <FooterLink to="/legal" label="Legal Notice" />
+                    <FooterLink to="/privacy" label="Privacy Statement" />
+                    <FooterLink to="/terms" label="Terms and Conditions" />
+                  </ul>
                 </div>
                 <div className="column">
-                  <a
-                    href="/client-services"
-                    className="is-uppercase has-text-white is-size-7"
-                  >
-                    Client Services
-                  </a>
+                  <ul className="is-marginless has-list-style-none">
+                    <FooterLink
+                      to="/client-service"
+                      label="Client Service"
+                      uppercase
+                    />
+                    <FooterLink to="/contact-us" label="Contact Us" />
+                    <FooterLink to="/faq" label="FAQ" />
+                    <FooterLink to="/track" label="Track your order" />
+                    <FooterLink to="/returns" label="Returns" />
+                  </ul>
                 </div>
               </div>
             </div>
             <div className="column">
-              <label
-                htmlFor="email"
-                className="is-uppercase has-text-white is-size-7"
+              <form
+                onSubmit={e => e.preventDefault()}
+                className="newsletter-signup pt-16"
               >
-                <div className="mb-12">Newsletter</div>
-                <input id="email" type="text" placeholder="yourname@mail.com" className="input" />
-              </label>
+                <span className="newsletter-lead">
+                  Exceptional quality. Art. Creativity. Radical ideas. Sign up
+                  to enjoy free U.S. shipping on your first order.
+                </span>
+                <div className="is-relative">
+                  <label htmlFor="email" className=" is-size-7">
+                    <input id="email" type="text" />
+                    <span className="floating-text">Email Address</span>
+                  </label>
+                </div>
+              </form>
             </div>
           </div>
-          <p className="is-uppercase has-text-white">&copy; Dennis Xing 2018</p>
+          <p className="is-uppercase ">&copy; Dennis Xing 2018</p>
         </div>
       </footer>
     )}
