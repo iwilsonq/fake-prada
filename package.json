@@ -1,8 +1,8 @@
 {
-	"name": "gatsby-bulma-quickstart",
-	"description": "A Project to bootstrap your next Gatsby + Bulma site.",
+	"name": "fake-prada",
+	"description": "An ecommerce site built to sell some techy swag",
 	"version": "1.0.0",
-	"author": "Aman Mittal <amandeepmittal@live.com>",
+	"author": "Ian Wilson <iwilsonq@gmail.com>",
 	"dependencies": {
 		"bulma": "^0.7.2",
 		"gatsby": "^2.0.19",
@@ -17,8 +17,8 @@
 		"gatsby-source-filesystem": "^2.0.4",
 		"gatsby-transformer-sharp": "^2.1.4",
 		"node-sass": "^4.10.0",
-		"react": "^16.7.0-alpha.2",
-		"react-dom": "^16.7.0-alpha.2",
+		"react": "16.7.0-alpha.2",
+		"react-dom": "16.7.0-alpha.2",
 		"react-helmet": "^5.2.0",
 		"react-icons": "^3.2.2",
 		"shopify-buy": "^1.11.0"
