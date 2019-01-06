@@ -5,8 +5,10 @@ import Layout from '../components/layout'
 
 const IndexPage = () => (
   <Layout fullNavbar>
-    <Hero />
-    <Midsection />
+    <div className="has-layout-border">
+      <Hero />
+      <Midsection />
+    </div>
   </Layout>
 )
 

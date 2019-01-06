@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import './style.scss'
 
 const Header = ({ siteTitle }) => (
@@ -8,21 +9,25 @@ const Header = ({ siteTitle }) => (
         <article className="media">
           <div className="media-content">
             <div className="content">
-              <h1 className="is-uppercase is-size-1 has-text-white">Xing</h1>
-              <p className="subtitle has-text-white is-size-3">
-                <a
-                  className="button is-inverted mr-36 hero-button"
-                  href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-                >
-                  <span>Discover More</span>
-                </a>
-                <a
-                  className="button is-inverted hero-button"
-                  href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-                >
-                  <span>Shop Now</span>
-                </a>
-              </p>
+              <h1 className="hero-title">Xing</h1>
+              <div className="is-flex-tablet">
+                <div className="mr-36 mb-16">
+                  <Link
+                    className="button is-inverted hero-button"
+                    to="/ready-to-wear"
+                  >
+                    Discover More
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    className="button is-inverted hero-button"
+                    to="/ready-to-wear"
+                  >
+                    Shop Now
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </article>

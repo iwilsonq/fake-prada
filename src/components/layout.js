@@ -7,7 +7,7 @@ import './style.scss'
 
 const Layout = ({ children, fullNavbar }) => {
   return (
-    <div className={fullNavbar ? 'has-layout-border' : ''}>
+    <div>
       <Helmet />
       <Navbar fullNavbar={fullNavbar} />
       {children}

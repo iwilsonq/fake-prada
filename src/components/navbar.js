@@ -5,39 +5,67 @@ import { FaMapMarkerAlt, FaShoppingBag } from 'react-icons/fa'
 import './style.scss'
 
 export const FullNavbar = () => (
-  <div className="is-hidden-mobile">
+  <div>
     <nav className="navbar has-background-black">
       <div className="full-width">
-        <div id="navbarMenuHeroA" className="navbar-menu level">
-          <div className="level-left">
-            <span className="navbar-item has-text-white">
-              <span className="icon">
-                <FaMapMarkerAlt />
+        <div className="is-hidden-mobile">
+          <div className="level">
+            <div className="level-left">
+              <span className="navbar-item has-text-white">
+                <span className="icon">
+                  <FaMapMarkerAlt />
+                </span>
+                <span>Ships to: United States</span>
               </span>
-              <span>Ships to: United States</span>
-            </span>
-          </div>
-          <div className="level-right has-text-white">
-            <span className="navbar-item has-text-white">
-              <span className="icon">
-                <FaShoppingBag />
+            </div>
+            <div className="level-right has-text-white">
+              <span className="navbar-item has-text-white">
+                <span className="icon">
+                  <FaShoppingBag />
+                </span>
               </span>
-            </span>
+            </div>
           </div>
-        </div>
-
-        <div className="center">
-          <div className="navbar-brand">
-            <div className="navbar-item">
-              <Link to="/" className="has-text-white">
-                <h1 className="is-uppercase is-size-1 has-text-white navbar-brand-margin">
-                  DENNIS XING
-                </h1>
-              </Link>
+          <div className="center">
+            <div className="navbar-brand">
+              <div className="navbar-item">
+                <Link to="/" className="has-text-white">
+                  <h1 className="hero-title">DENNIS XING</h1>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-        <div className="center has-border-tb">
+
+        <div className="is-hidden-tablet is-flex justify-space-between">
+          <button
+            className="navbar-burger burger no-bg is-marginless"
+            aria-label="menu"
+            aria-expanded="false"
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </button>
+          <div className="center">
+            <div className="navbar-brand">
+              <div className="navbar-item">
+                <Link to="/" className="has-text-white">
+                  <h1 className="hero-title">DENNIS XING</h1>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="navbar-item has-text-white">
+              <span className="icon">
+                <FaShoppingBag />
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="center has-border-tb is-hidden-mobile">
           <div className="navbar-item">
             <Link to="/ready-to-wear" className="has-text-white">
               Ready to Wear

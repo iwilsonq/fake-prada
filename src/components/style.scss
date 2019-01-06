@@ -1,8 +1,8 @@
-// Importing variables
-@import './variables.scss';
-
 // Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
+
+// Importing variables
+@import './variables.scss';
 
 @import './product.scss';
 
@@ -24,12 +24,25 @@ body {
 
 .hero-bg {
   display: flex;
-  background: url(../images/hero-bg.png);
+  background-image: url(../images/h1b_hero.png);
+  background-position: center center;
+
+  @media screen and (max-width: $mobile) {
+    background-position: 60% 0%;
+    background-size: $mobile auto;
+    background-repeat: no-repeat;
+  }
 }
 
 .center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.justify-space-between {
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -89,6 +102,15 @@ body {
   }
 }
 
+h1.hero-title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 74px;
+  @media screen and (max-width: $mobile) {
+    font-size: 24px;
+  }
+}
+
 .has-border-tb {
   border-top: 1px solid $border;
   border-bottom: 1px solid $border;
@@ -132,8 +154,19 @@ body {
 .has-layout-border {
   border-left: 20px solid $black;
   border-right: 20px solid $black;
+
+  @media screen and (max-width: $mobile) {
+    border-left: 12px solid $black;
+    border-right: 12px solid $black;
+  }
 }
 
 .has-list-style-none {
   list-style: none !important;
 }
+
+.navbar-burger span {
+  height: 2px;
+  background-color: #fff;
+}
+
