@@ -1,36 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { setConfig } from 'react-hot-loader'
+import React from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { Collection } from '../components/collection'
-import collectionOne from '../images/collection-1.jpg'
-import collectionTwo from '../images/collection-2.jpg'
 
-setConfig({ pureSFC: true })
-
-const useCollections = () => {
-  const [collections, setCollections] = useState([])
-
-  useEffect(() => {
-    window.shopify.collection
-      .fetchAllWithProducts()
-      .then(collections =>
-        collections.map((collection, i) => {
-          return {
-            ...collection,
-            image: i === 0 ? collectionOne : collectionTwo
-          }
-        })
-      )
-      .then(setCollections)
-      .catch(e => console.error(e))
-  }, [])
-
-  return collections
-}
-
-const ReadyToWearPage = () => {
-  const collections = useCollections()
+const ReadyToWearPage = ({ data }) => {
+  const collections = data.allShopifyCollections.edges.map(({ node }) => node)
   return (
     <Layout>
       <div className="full-container">
@@ -42,5 +17,41 @@ const ReadyToWearPage = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allShopifyCollections {
+      edges {
+        node {
+          id
+          title
+          image {
+            originalSrc
+            transformedSrc
+          }
+          products {
+            edges {
+              node {
+                id
+                title
+                variants {
+                  edges {
+                    node {
+                      id
+                      price
+                      image {
+                        src
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ReadyToWearPage

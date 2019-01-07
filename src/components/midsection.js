@@ -1,37 +1,41 @@
 import React from 'react'
 import './style.scss'
-import womenSrc from '../images/women.png'
-import menSrc from '../images/men.png'
+import microsoft from '../images/microsoft.jpg'
+import google from '../images/google.jpg'
+import android from '../images/android.jpg'
 
 const Midsection = () => (
   <section className="section">
     <div className="container">
       <div className="columns">
         <div className="column">
-          <article className="media">
-            <div className="mt-280">
-              <div className="media-content">
-                <div className="content">
-                  <p className="is-size-1 has-text-black">Women</p>
-                </div>
-              </div>
-              <figure className="media-left">
-                <img src={womenSrc} alt="women" />
+          <article className="media flex-end mb-223">
+            <div className="midsection-1">
+              <figure className="media-right">
+                <img src={microsoft} alt="microsoft" />
               </figure>
             </div>
           </article>
         </div>
+      </div>
+      <div className="columns">
         <div className="column">
-          <article className="media">
-            <div>
+          <article className="media flex-start mb-223">
+            <div className="midsection-2">
               <figure className="media-left">
-                <img src={menSrc} alt="men" />
+                <img src={google} alt="google" />
               </figure>
-              <div className="media-content">
-                <div className="content">
-                  <p className="is-size-1 has-text-black">Men</p>
-                </div>
-              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div className="columns">
+        <div className="column">
+          <article className="media flex-end mb-223">
+            <div className="midsection-3">
+              <figure className="media-right">
+                <img src={android} alt="android" />
+              </figure>
             </div>
           </article>
         </div>

@@ -5,6 +5,7 @@
 	"author": "Ian Wilson <iwilsonq@gmail.com>",
 	"dependencies": {
 		"bulma": "^0.7.2",
+		"crypto": "^1.0.1",
 		"gatsby": "^2.0.19",
 		"gatsby-image": "^2.0.15",
 		"gatsby-plugin-google-analytics": "^2.0.7",
@@ -15,6 +16,7 @@
 		"gatsby-plugin-sharp": "^2.0.7",
 		"gatsby-plugin-sitemap": "^2.0.2",
 		"gatsby-source-filesystem": "^2.0.4",
+		"gatsby-source-shopify-storefront": "^1.0.0",
 		"gatsby-transformer-sharp": "^2.1.4",
 		"node-sass": "^4.10.0",
 		"react": "16.7.0-alpha.2",
