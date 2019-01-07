@@ -1,8 +1,8 @@
 import React from 'react'
 import './style.scss'
 import microsoft from '../images/microsoft.jpg'
-import google from '../images/google.jpg'
-import android from '../images/android.jpg'
+import google from '../images/google_sign_expats.jpg'
+import android from '../images/bikes_silver_android.jpg'
 
 const Midsection = () => (
   <section className="section">
@@ -34,7 +34,7 @@ const Midsection = () => (
           <article className="media flex-end mb-223">
             <div className="midsection-3">
               <figure className="media-right">
-                <img src={android} alt="android" />
+                <img src={android} alt="bikes_silver_android" />
               </figure>
             </div>
           </article>
