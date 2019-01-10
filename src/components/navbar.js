@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { FaMapMarkerAlt, FaShoppingBag } from 'react-icons/fa'
+import locationSrc from '../../static/assets/location.svg'
+import shoppingbagSrc from '../../static/assets/shoppingbag.svg'
 
 import './style.scss'
 
@@ -13,7 +15,7 @@ export const FullNavbar = () => (
             <div className="level-left">
               <span className="navbar-item has-text-white">
                 <span className="icon">
-                  <FaMapMarkerAlt />
+                  <img src={locationSrc} />
                 </span>
                 <span>Ships to: United States</span>
               </span>
@@ -21,7 +23,7 @@ export const FullNavbar = () => (
             <div className="level-right has-text-white">
               <span className="navbar-item has-text-white">
                 <span className="icon">
-                  <FaShoppingBag />
+                  <img src={shoppingbagSrc} />
                 </span>
               </span>
             </div>
