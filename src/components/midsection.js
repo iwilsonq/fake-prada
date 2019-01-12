@@ -9,7 +9,7 @@ const Midsection = () => (
     <div className="container">
       <div className="columns">
         <div className="column">
-          <article className="media flex-end mb-223">
+          <article className="media flex-end mb-10">
             <div className="midsection-1">
               <figure className="media-right">
                 <img src={microsoft} alt="microsoft" />
@@ -20,7 +20,7 @@ const Midsection = () => (
       </div>
       <div className="columns">
         <div className="column">
-          <article className="media flex-start mb-223">
+          <article className="media flex-start mb-10">
             <div className="midsection-2">
               <figure className="media-left">
                 <img src={google} alt="google" />
@@ -31,7 +31,7 @@ const Midsection = () => (
       </div>
       <div className="columns">
         <div className="column">
-          <article className="media flex-end mb-223">
+          <article className="media flex-end mb-10">
             <div className="midsection-3">
               <figure className="media-right">
                 <img src={android} alt="bikes_silver_android" />
