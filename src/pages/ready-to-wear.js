@@ -20,7 +20,7 @@ const ReadyToWearPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allShopifyCollections {
+    allShopifyCollections(sort: { fields: updatedAt, order: DESC }) {
       edges {
         node {
           id
@@ -34,6 +34,7 @@ export const query = graphql`
               node {
                 id
                 title
+                slug
                 variants {
                   edges {
                     node {

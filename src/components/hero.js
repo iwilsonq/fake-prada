@@ -3,8 +3,8 @@ import { Link } from 'gatsby'
 import './style.scss'
 
 const Header = ({ siteTitle }) => (
-  <section className="hero hero-bg is-fullheight-with-navbar">
-    <div className="hero-body">
+  <section className="hero hero-bg">
+    <div className="hero-body lower">
       <div className="container">
         <article className="media">
           <div className="media-content">

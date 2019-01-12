@@ -1,16 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const formatTitleForUrl = (title = '') => {
-  const matchSpaces = /\s/g
-  return title.toLowerCase().replace(matchSpaces, '_')
-}
-
 export const Product = props => {
-  const { title, image, price } = props
-  const productId = formatTitleForUrl(title)
+  const { title, image, price, slug } = props
   return (
-    <Link to={`/products/${productId}`}>
+    <Link to={`/products/${slug}`}>
       <article className="product-card">
         <header>
           <figure>

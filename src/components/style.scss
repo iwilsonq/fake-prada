@@ -22,15 +22,38 @@ body {
   margin: 72px 28px;
 }
 
+.hero {
+  min-height: calc(74vh - 3.25rem);
+}
+
+.lower {
+  padding-top: 20rem; 
+}
+
 .hero-bg {
   display: flex;
   background-image: url(../images/h1b_hero.png);
   background-position: center center;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: $widescreen) {
+    background-position: 60% 0%;
+    background-size: 100% auto;
+  }
+
+  @media screen and (max-width: $desktop) {
+    background-position: 60% 0%;
+    background-size: 100% auto;
+  }
+
+  @media screen and (max-width: $tablet) {
+    background-position: 60% 0%;
+    background-size: 100% auto;
+  }
 
   @media screen and (max-width: $mobile) {
     background-position: 60% 0%;
     background-size: $mobile auto;
-    background-repeat: no-repeat;
   }
 }
 
@@ -186,4 +209,9 @@ h1.hero-title {
 }
 article.flex-end {
   justify-content: flex-end;
+}
+
+.page-container {
+  margin: 72px 24px;
+  min-height: calc(100vh - 430px);
 }
