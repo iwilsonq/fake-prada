@@ -38,30 +38,30 @@ const Footer = () => (
     render={data => (
       <footer className="footer center has-background-white">
         <div className="full-width">
-          <div className="mb-16">
+          <div className="mb-16 social">
             <article className="media">
               <span className="icon">
                 <a href={data.site.siteMetadata.twitter}>
-                  <FaTwitter size="fa-2x" color="white" />
+                  <FaTwitter size="fa-2x" color="black" />
                 </a>
               </span>
               <span className="icon">
                 <a href={data.site.siteMetadata.instagram}>
-                  <FaInstagram size="fa-2x" color="white" />
+                  <FaInstagram size="fa-2x" color="black" />
                 </a>
               </span>
             </article>
           </div>
           <div className="columns has-border-tb">
             <div className="column is-three-fifths">
-              <div className="columns pt-16">
-                <div className="column">
+              <div className="columns pt-16 wrap-columns">
+                <div className="column is-half-mobile is-one-quarter-tablet">
                   <ul className="is-marginless has-list-style-none">
                     <FooterLink to="/products" label="Product" uppercase />
                     <FooterLink to="/ready-to-wear" label="Ready to Wear" />
                   </ul>
                 </div>
-                <div className="column">
+                <div className="column is-half-mobile is-one-quarter-tablet">
                   <ul className="is-marginless has-list-style-none">
                     <FooterLink to="/about" label="About Us" uppercase />
                     <FooterLink
@@ -72,7 +72,7 @@ const Footer = () => (
                     <FooterLink to="/about" label="About" />
                   </ul>
                 </div>
-                <div className="column">
+                <div className="column is-half-mobile is-one-quarter-tablet">
                   <ul className="is-marginless has-list-style-none">
                     <FooterLink to="/legal" label="Legal" uppercase />
                     <FooterLink to="/legal" label="Legal Notice" />
@@ -80,7 +80,7 @@ const Footer = () => (
                     <FooterLink to="/terms" label="Terms and Conditions" />
                   </ul>
                 </div>
-                <div className="column">
+                <div className="column is-half-mobile is-one-quarter-tablet">
                   <ul className="is-marginless has-list-style-none">
                     <FooterLink
                       to="/client-service"
@@ -95,7 +95,7 @@ const Footer = () => (
                 </div>
               </div>
             </div>
-            <div className="column">
+            <div className="column is-hidden-mobile">
               <form
                 onSubmit={e => e.preventDefault()}
                 className="newsletter-signup pt-16"

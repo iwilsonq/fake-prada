@@ -148,7 +148,8 @@ exports.createPages = ({ getNodes, actions }) => {
       path: `products/${slug}`,
       component: path.resolve(`./src/templates/product-details.js`),
       context: {
-        slug
+        slug,
+        node
       }
     })
   })

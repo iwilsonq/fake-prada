@@ -21,3 +21,47 @@
     max-width: 300px;
   }
 }
+
+.product-description {
+  margin-top: 24px;
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    margin-top: 12px;
+  }
+}
+
+.has-fixed-width {
+  @media screen and (min-width: $mobile) {
+    width: 250px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 370px;
+  }
+}
+
+.product-details-tablet {
+  h2 {
+    font-weight: 600;
+    color: $black;
+  }
+}
+.product-details-mobile {
+  h2 {
+    font-weight: 600;
+    color: $black;
+    margin-top: 60px;
+    text-align: center;
+    max-width: 270px;
+  }
+
+  .price {
+    margin-top: 12px;
+    text-align: center;
+  }
+}
+
+.mobile-margins {
+  padding: 0px 14px;
+}

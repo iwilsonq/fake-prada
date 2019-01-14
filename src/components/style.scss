@@ -1,9 +1,11 @@
-// Importing Bulma from node_modules
 @import '~bulma/bulma.sass';
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 
 // Importing variables
 @import './variables.scss';
 
+@import './button.scss';
 @import './product.scss';
 
 @font-face {
@@ -27,22 +29,22 @@ body {
 }
 
 .lower {
-  padding-top: 20rem; 
+  padding-top: 20rem;
 }
 
 .hero-bg {
   display: flex;
   background-image: url(../images/h1b_hero.png);
-  background-position: center center;
   background-repeat: no-repeat;
+  background-position: 70% 25%;
 
   @media screen and (min-width: $widescreen) {
-    background-position: 60% 0%;
+    background-position: 60% 30%;
     background-size: 100% auto;
   }
 
   @media screen and (max-width: $desktop) {
-    background-position: 60% 0%;
+    background-position: 70% 20%;
     background-size: 100% auto;
   }
 
@@ -63,6 +65,20 @@ body {
   align-items: center;
 }
 
+.center-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.center-column-stretch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .justify-space-between {
   width: 100%;
   justify-content: space-between;
@@ -71,6 +87,14 @@ body {
 
 .is-relative {
   position: relative;
+}
+
+.is-absolute {
+  position: absolute;
+}
+
+.is-fixed {
+  position: fixed;
 }
 
 .pt-16 {
@@ -87,6 +111,13 @@ body {
   }
   a:hover {
     color: $secondary-color;
+  }
+
+  .social {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    border-top: 1px solid $border;
+    padding-top: 12px;
   }
 
   .newsletter-signup {
@@ -153,6 +184,9 @@ h1.hero-title {
   padding-top: 16px;
   padding-bottom: 16px;
 }
+.pb-96 {
+  padding-bottom: 96px;
+}
 
 .my-72 {
   margin-top: 72px;
@@ -166,8 +200,14 @@ h1.hero-title {
 .mr-36 {
   margin-right: 36px;
 }
+.mt-72 {
+  margin-top: 72px;
+}
 .mt-280 {
   margin-top: 280px;
+}
+.mt-160 {
+  margin-top: 160px;
 }
 
 .hero-button {
@@ -214,4 +254,10 @@ article.flex-end {
 .page-container {
   margin: 72px 24px;
   min-height: calc(100vh - 430px);
+}
+
+.wrap-columns {
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
 }
