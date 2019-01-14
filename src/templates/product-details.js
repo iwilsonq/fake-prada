@@ -52,7 +52,7 @@ const MobileProductDetails = props => {
     <div className="product-details-mobile is-hidden-tablet mt-72">
       <Slider {...sliderSettings}>
         {props.images.edges.map(({ node }, index) => (
-          <img key={node.id} src={node.src} alt={`product image ${index}`} />
+          <img key={node.id} src={node.src} alt={`product ${index}`} />
         ))}
       </Slider>
       <div className="center-column-stretch">

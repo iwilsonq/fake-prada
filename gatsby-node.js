@@ -3,7 +3,11 @@ const crypto = require('crypto')
 
 const formatTitleForUrl = (title = '') => {
   const matchSpaces = /\s/g
-  return title.toLowerCase().replace(matchSpaces, '_')
+  const matchStripChars = /\?/g
+  return title
+    .toLowerCase()
+    .replace(matchSpaces, '-')
+    .replace(matchStripChars, '')
 }
 
 const collectionQuery = /* GraphQL */ `
