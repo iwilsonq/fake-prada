@@ -1,0 +1,48 @@
+.checkout-page {
+  width: 1400px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.checkout-receipt {
+  width: 400px;
+  max-width: 400px;
+  margin: 36px auto;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.estimated-tax {
+  border-bottom: 1px solid $black;
+  padding-bottom: 22px;
+  margin-bottom: 15px;
+}
+
+table.line-items {
+  width: 100%;
+
+  tr {
+    border-bottom: 1px solid $black;
+
+    img.product-image {
+      width: 110px;
+    }
+
+    &.line-item td {
+      padding-top: 40px;
+      padding-bottom: 70px;
+    }
+  }
+
+  .has-text-align-right {
+    text-align: right;
+  }
+
+  th {
+    font-size: 24px;
+    padding-bottom: 8px;
+  }
+}
