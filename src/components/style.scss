@@ -6,6 +6,7 @@
 @import './variables.scss';
 
 @import './button.scss';
+@import './form.scss';
 @import './product.scss';
 @import './checkout.scss';
 
@@ -200,6 +201,9 @@ h1.hero-title {
 
 .mr-36 {
   margin-right: 36px;
+}
+.mb-36 {
+  margin-bottom: 36px;
 }
 .mt-72 {
   margin-top: 72px;

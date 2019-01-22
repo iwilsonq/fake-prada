@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Slider from 'react-slick'
 import Layout from '../components/layout'
+import { ShopifyContext } from '../components/shopify'
 
 const SIZES = [
   {
@@ -28,6 +29,7 @@ const Sizes = ({ selectedSize, setSelectedSize }) => {
         const selected = size.value === selectedSize.value ? 'selected' : ''
         return (
           <button
+            key={size.value}
             className={`size-button ${selected}`}
             onClick={() => setSelectedSize(size)}
           >
@@ -63,7 +65,9 @@ const MobileProductDetails = props => {
             selectedSize={props.selectedSize}
             setSelectedSize={props.setSelectedSize}
           />
-          <button className="default-button">Purchase</button>
+          <button className="default-button" onClick={props.handlePurchase}>
+            Purchase
+          </button>
         </div>
       </div>
       <div
@@ -105,7 +109,12 @@ const WidescreenProductDetails = props => {
                   selectedSize={props.selectedSize}
                   setSelectedSize={props.setSelectedSize}
                 />
-                <button className="default-button">Purchase</button>
+                <button
+                  className="default-button"
+                  onClick={props.handlePurchase}
+                >
+                  Purchase
+                </button>
               </div>
             </div>
           </div>
@@ -115,7 +124,7 @@ const WidescreenProductDetails = props => {
   )
 }
 
-const ProductDetails = ({ pageContext }) => {
+const ProductDetails = ({ pageContext, navigate }) => {
   const { node } = pageContext
   const { title, descriptionHtml, images, variants } = node
   const variant = variants.edges[0].node
@@ -128,20 +137,52 @@ const ProductDetails = ({ pageContext }) => {
     selectedSize,
     setSelectedSize
   }
+  const lineItem = { variantId: variant.id, quantity: 1 }
   return (
     <Layout>
-      <div className="container pb-96 mobile-margins">
-        <WidescreenProductDetails {...props} />
-        <MobileProductDetails {...props} />
-      </div>
+      <ShopifyContext.Consumer>
+        {({
+          createCheckout,
+          addLineItems,
+          setCheckoutId,
+          checkoutId,
+          setLineItems
+        }) => {
+          const handlePurchase = () => {
+            let chain = Promise.resolve()
+            if (!checkoutId) {
+              chain = createCheckout().then(id => {
+                setCheckoutId(id)
+                return id
+              })
+            }
+            chain = chain
+              .then(checkoutId => {
+                return addLineItems(checkoutId, [lineItem])
+              })
+              .then(lineItems => {
+                setLineItems(lineItems)
+                navigate('/checkout')
+              })
+            return chain
+          }
+
+          return (
+            <div className="container pb-96 mobile-margins">
+              <WidescreenProductDetails
+                handlePurchase={handlePurchase}
+                {...props}
+              />
+              <MobileProductDetails
+                handlePurchase={handlePurchase}
+                {...props}
+              />
+            </div>
+          )
+        }}
+      </ShopifyContext.Consumer>
     </Layout>
   )
 }
-
-// const ProductQuery = graphql`
-//   query ProductQuery {
-
-//   }
-// `
 
 export default ProductDetails

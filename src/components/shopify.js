@@ -2,7 +2,6 @@ import React from 'react'
 import Client from 'shopify-buy'
 
 const initializeShopify = () => {
-  console.log('initializeShopify')
   const shopifyConfig = {
     domain: `${process.env.GATSBY_SHOPIFY_DOMAIN}.myshopify.com`,
     storefrontAccessToken: process.env.GATSBY_SHOPIFY_STOREFRONT_TOKEN
@@ -12,21 +11,47 @@ const initializeShopify = () => {
 
   const createCheckout = () => {
     return shopifyClient.checkout.create().then(checkout => {
-      console.log('checkout.id', checkout.id)
+      localStorage.setItem('checkoutId', checkout.id)
       return checkout.id
     })
   }
 
-  const fetchCheckout = checkoutId => {
-    return shopifyClient.checkout.fetch(checkoutId).then(checkout => {
-      console.log('checkout.id', checkout.id)
-      return checkout.id
-    })
+  const addLineItems = (checkoutId, lineItems) => {
+    return shopifyClient.checkout
+      .addLineItems(checkoutId, lineItems)
+      .then(checkout => checkout.lineItems)
+      .catch(e => console.error(e))
+  }
+  
+  const removeLineItems = (checkoutId, lineItems) => {
+    return shopifyClient.checkout
+      .removeLineItems(checkoutId, lineItems)
+      .then(checkout => checkout.lineItems)
+      .catch(e => console.error(e))
+  }
+
+  const fetchCheckout = (checkoutId = localStorage.getItem('checkoutId')) => {
+    if (!checkoutId) {
+      return Promise.reject('fetchCheckout: No stored checkout id')
+    }
+
+    return shopifyClient.checkout
+      .fetch(checkoutId)
+      .then(checkout => {
+        return checkout
+      })
+      .catch(e => console.error(e))
   }
 
   return {
     createCheckout,
-    fetchCheckout
+    fetchCheckout,
+    addLineItems,
+    removeLineItems,
+    lineItems: [],
+    setLineItems: () => {},
+    checkoutId: '',
+    setCheckoutId: () => {}
   }
 }
 

@@ -22,7 +22,9 @@ export const FullNavbar = () => (
             <div className="level-right has-text-white">
               <span className="navbar-item has-text-white">
                 <span className="icon">
-                  <img src={shoppingbagSrc} alt="shopping bag" />
+                  <Link to="/checkout">
+                    <img src={shoppingbagSrc} alt="shopping bag" />
+                  </Link>
                 </span>
               </span>
             </div>
@@ -60,7 +62,9 @@ export const FullNavbar = () => (
           <div>
             <div className="navbar-item has-text-white">
               <span className="icon">
-                <img src={shoppingbagSrc} alt="shopping bag" />
+                <Link to="/checkout">
+                  <img src={shoppingbagSrc} alt="shopping bag" />
+                </Link>
               </span>
             </div>
           </div>

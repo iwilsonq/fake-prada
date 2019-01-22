@@ -42,12 +42,12 @@ const Footer = () => (
             <article className="media">
               <span className="icon">
                 <a href={data.site.siteMetadata.twitter}>
-                  <FaTwitter size="fa-2x" color="black" />
+                  <FaTwitter color="black" />
                 </a>
               </span>
               <span className="icon">
                 <a href={data.site.siteMetadata.instagram}>
-                  <FaInstagram size="fa-2x" color="black" />
+                  <FaInstagram color="black" />
                 </a>
               </span>
             </article>

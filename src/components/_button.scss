@@ -7,6 +7,12 @@
 button {
   cursor: pointer;
   font-family: 'GT Eesti Pro';
+  
+  &.image-button {
+    background: none;
+    border: none;
+  }
+
 
   &.default-button {
     font-size: 36px;
@@ -17,6 +23,9 @@ button {
     border: 1px solid $black;
     width: 100%;
 
+    &.small {
+      font-size: 18px;
+    }
 
     &.selected,
     &:hover {

@@ -1,26 +1,18 @@
-import React, { useState } from 'react'
-import Helmet from './helmet'
+import React from 'react'
 
-import { ShopifyContext, shopifyApi } from './shopify'
-import Footer from './footer'
+import Helmet from './helmet'
 import { Navbar } from './navbar'
+import Footer from './footer'
 import './style.scss'
 
 const Layout = ({ children, fullNavbar }) => {
-  const [checkoutId, setCheckoutId] = useState()
-  const shopifyContext = {
-    ...shopifyApi,
-    checkoutId,
-    setCheckoutId
-  }
-
   return (
-    <ShopifyContext.Provider value={shopifyContext}>
+    <div>
       <Helmet />
       <Navbar fullNavbar={fullNavbar} />
       {children}
       <Footer />
-    </ShopifyContext.Provider>
+    </div>
   )
 }
 
