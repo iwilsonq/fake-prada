@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react'
 import { shopifyApi } from './shopify'
 
-const isBrowser = () => typeof window !== "undefined"
-const getLocalStorageItem = () => isBrowser() && window.localStorage.getItem('checkoutId') ? window.localStorage.getItem('checkoutId') : ''
+const isBrowser = () => typeof window !== 'undefined'
+const getLocalStorageItem = key =>
+  isBrowser() && window.localStorage.getItem(key)
+    ? window.localStorage.getItem(key)
+    : ''
 
-export const useCheckout = (id) => {
+export const useCheckout = id => {
   if (!id) {
-    id = getLocalStorageItem()
+    id = getLocalStorageItem('checkoutId')
   }
 
   const [checkoutId, setCheckoutId] = useState(id || '')

@@ -2,12 +2,14 @@ import React from 'react'
 import Client from 'shopify-buy'
 
 const isBrowser = () => typeof window !== 'undefined'
-const getLocalStorageItem = () =>
-  isBrowser() && window.localStorage.getItem('checkoutId')
-    ? window.localStorage.getItem('checkoutId')
+
+const getLocalStorageItem = key =>
+  isBrowser() && window.localStorage.getItem(key)
+    ? window.localStorage.getItem(key)
     : ''
-const setLocalStorageItem = checkoutId =>
-  isBrowser() && window.localStorage.setItem('checkoutId', checkoutId)
+
+const setLocalStorageItem = (key, item) =>
+  isBrowser() && window.localStorage.setItem(key, item)
 
 const initializeShopify = () => {
   const shopifyConfig = {
@@ -38,7 +40,7 @@ const initializeShopify = () => {
       .catch(e => console.error(e))
   }
 
-  const fetchCheckout = (checkoutId = getLocalStorageItem()) => {
+  const fetchCheckout = (checkoutId = getLocalStorageItem('checkoutId')) => {
     if (!checkoutId) {
       return Promise.reject('fetchCheckout: No stored checkout id')
     }
