@@ -111,15 +111,29 @@ export const CondensedNavbar = () => (
       </div>
     </div>
     <div className="navbar-menu">
-      <div className="navbar-item">
-        <Link to="/ready-to-wear" className="has-text-white is-size-6">
-          Ready to Wear
-        </Link>
-      </div>
-      <div className="navbar-item">
-        <Link to="/streetwear-manifesto" className="has-text-white is-size-6">
-          The Streetwear Manifesto
-        </Link>
+      <div className="has-space-between full-width">
+        <div className="is-flex ">
+          <div className="navbar-item">
+            <Link to="/ready-to-wear" className="has-text-white is-size-6">
+              Ready to Wear
+            </Link>
+          </div>
+          <div className="navbar-item">
+            <Link
+              to="/streetwear-manifesto"
+              className="has-text-white is-size-6"
+            >
+              The Streetwear Manifesto
+            </Link>
+          </div>
+        </div>
+        <div className="navbar-item">
+          <span className="icon">
+            <Link to="/checkout">
+              <img src={shoppingbagSrc} alt="shopping bag" />
+            </Link>
+          </span>
+        </div>
       </div>
     </div>
   </nav>

@@ -4,15 +4,23 @@
   margin-top: 30px;
 }
 
+.breadcrumb li.is-active > button {
+  font-weight: bold;
+}
+
 button {
   cursor: pointer;
   font-family: 'GT Eesti Pro';
-  
+
   &.image-button {
     background: none;
     border: none;
   }
 
+  &.link-button {
+    background: none;
+    border: none;
+  }
 
   &.default-button {
     font-size: 36px;
@@ -22,6 +30,11 @@ button {
     border-radius: 0px;
     border: 1px solid $black;
     width: 100%;
+
+    &.medium {
+      font-size: 24px;
+
+    }
 
     &.small {
       font-size: 18px;

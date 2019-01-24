@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Slider from 'react-slick'
 import Layout from '../components/layout'
-import { ShopifyContext } from '../components/shopify'
+import { CheckoutContext } from '../components/checkout-context'
 
 const SIZES = [
   {
@@ -125,6 +125,7 @@ const WidescreenProductDetails = props => {
 }
 
 const ProductDetails = ({ pageContext, navigate }) => {
+  const { addLineItems } = useContext(CheckoutContext)
   const { node } = pageContext
   const { title, descriptionHtml, images, variants } = node
   const variant = variants.edges[0].node
@@ -137,50 +138,19 @@ const ProductDetails = ({ pageContext, navigate }) => {
     selectedSize,
     setSelectedSize
   }
-  const lineItem = { variantId: variant.id, quantity: 1 }
+
+  const updatedLineItems = [{ variantId: variant.id, quantity: 1 }]
+
+  const handlePurchase = () => {
+    addLineItems(updatedLineItems).then(() => navigate('/checkout'))
+  }
+
   return (
     <Layout>
-      <ShopifyContext.Consumer>
-        {({
-          createCheckout,
-          addLineItems,
-          setCheckoutId,
-          checkoutId,
-          setLineItems
-        }) => {
-          const handlePurchase = () => {
-            let chain = Promise.resolve()
-            if (!checkoutId) {
-              chain = createCheckout().then(id => {
-                setCheckoutId(id)
-                return id
-              })
-            }
-            chain = chain
-              .then(checkoutId => {
-                return addLineItems(checkoutId, [lineItem])
-              })
-              .then(lineItems => {
-                setLineItems(lineItems)
-                navigate('/checkout')
-              })
-            return chain
-          }
-
-          return (
-            <div className="container pb-96 mobile-margins">
-              <WidescreenProductDetails
-                handlePurchase={handlePurchase}
-                {...props}
-              />
-              <MobileProductDetails
-                handlePurchase={handlePurchase}
-                {...props}
-              />
-            </div>
-          )
-        }}
-      </ShopifyContext.Consumer>
+      <div className="container pb-96 mobile-margins">
+        <WidescreenProductDetails handlePurchase={handlePurchase} {...props} />
+        <MobileProductDetails handlePurchase={handlePurchase} {...props} />
+      </div>
     </Layout>
   )
 }

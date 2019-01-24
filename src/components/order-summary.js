@@ -1,6 +1,6 @@
-import React from 'react'
-import { useCheckout } from './use-checkout'
+import React, { useContext } from 'react'
 import closeIconSrc from '../../static/assets/close.svg'
+import { CheckoutContext } from './checkout-context'
 
 const Receipt = props => {
   const subtotal = props.lineItems.reduce((total, curr) => {
@@ -69,11 +69,11 @@ const LineItem = props => {
   )
 }
 
-export const ShoppingBag = props => {
-  const { checkoutId, lineItems, removeLineItems } = useCheckout()
+export const OrderSummary = props => {
+  const { lineItems, removeLineItems } = useContext(CheckoutContext)
 
   const handleRemoveLineItem = lineItemId => () => {
-    removeLineItems(checkoutId, [lineItemId])
+    removeLineItems([lineItemId])
   }
 
   return (

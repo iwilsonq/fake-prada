@@ -1,12 +1,23 @@
 import React from 'react'
-import { ShopifyContext, shopifyApi } from './src/components/shopify'
+import { CheckoutContext } from './src/components/checkout-context'
+import { useCheckout } from './src/components/use-checkout'
+
+const CheckoutProvider = props => {
+  const { lineItems, removeLineItems, addLineItems } = useCheckout()
+
+  const value = {
+    addLineItems,
+    removeLineItems,
+    lineItems
+  }
+
+  return (
+    <CheckoutContext.Provider value={value}>
+      {props.children}
+    </CheckoutContext.Provider>
+  )
+}
 
 export const wrapRootElement = ({ element }) => {
-  return (
-    <div>
-      <ShopifyContext.Provider value={shopifyApi}>
-        {element}
-      </ShopifyContext.Provider>
-    </div>
-  )
+  return <CheckoutProvider>{element}</CheckoutProvider>
 }

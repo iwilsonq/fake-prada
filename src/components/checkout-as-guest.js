@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { TextInput } from './text-input'
 import { textConstants } from '../constants/text'
+import { checkoutSteps } from '../constants/checkout'
 
 export const CheckoutAsGuest = props => {
   const [email, setEmail] = useState('')
@@ -16,7 +17,14 @@ export const CheckoutAsGuest = props => {
         />
 
         <div className="checkout-button-wrapper">
-          <button className="default-button small mb-36">Checkout</button>
+          <button
+            className="default-button small mb-36"
+            onClick={() =>
+              props.setCheckoutStep(checkoutSteps.customerInformation)
+            }
+          >
+            Checkout
+          </button>
           <p className="fine-print">{textConstants.accountDisclaimer}</p>
           <br />
           <p className="fine-print">{textConstants.unsubscribeDisclaimer}</p>
