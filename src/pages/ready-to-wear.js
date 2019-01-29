@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-import { Collection } from '../components/collection'
+import { Collection } from '../components/ready-to-wear/collection'
 
 const ReadyToWearPage = ({ data }) => {
   const collections = data.allShopifyCollections.edges.map(({ node }) => node)

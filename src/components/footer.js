@@ -1,7 +1,6 @@
 import React from 'react'
 import { FaTwitter, FaInstagram } from 'react-icons/fa'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import './style.scss'
 
 const FooterLink = ({ to, label, className, uppercase }) => {
   let initialClassName = 'is-size-7'

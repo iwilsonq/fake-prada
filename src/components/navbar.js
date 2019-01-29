@@ -3,8 +3,6 @@ import { Link } from 'gatsby'
 import locationSrc from '../../static/assets/location.svg'
 import shoppingbagSrc from '../../static/assets/shoppingbag.svg'
 
-import './style.scss'
-
 export const FullNavbar = () => (
   <div>
     <nav className="navbar has-background-black">

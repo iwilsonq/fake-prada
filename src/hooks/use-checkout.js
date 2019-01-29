@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import {createContext, useState, useEffect } from 'react'
 import Client from 'shopify-buy'
 
 const isBrowser = () => typeof window !== 'undefined'
@@ -24,17 +24,20 @@ export const useCheckout = () => {
   const id = getLocalStorageItem('checkoutId')
   const [checkoutId, setCheckoutId] = useState(id || '')
   const [lineItems, setLineItems] = useState([])
+  const [checkout, setCheckout] = useState({})
 
   useEffect(() => {
     if (!checkoutId) {
       shopifyClient.checkout.create().then(checkout => {
         setCheckoutId(checkout.id)
         setLocalStorageItem('checkoutId', checkout.id)
+        setCheckout(checkout)
       })
     } else {
       shopifyClient.checkout.fetch(checkoutId).then(checkout => {
         setCheckoutId(checkout.id)
         setLineItems(checkout.lineItems)
+        setCheckout(checkout)
       })
     }
   }, [])
@@ -52,9 +55,16 @@ export const useCheckout = () => {
       .then(checkout => setLineItems(checkout.lineItems))
 
   return {
-    checkoutId,
+    checkout,
     lineItems,
     addLineItems,
     removeLineItems
   }
 }
+
+export const CheckoutContext = createContext({
+  addLineItems: () => {},
+  removeLineItems: () => {},
+  lineItems: [],
+  checkout: {},
+})

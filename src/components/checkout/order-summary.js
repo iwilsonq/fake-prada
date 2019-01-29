@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import closeIconSrc from '../../static/assets/close.svg'
-import { CheckoutContext } from './checkout-context'
+import closeIconSrc from '../../../static/assets/close.svg'
+import { CheckoutContext } from '../../hooks/use-checkout'
 
 const Receipt = props => {
   const subtotal = props.lineItems.reduce((total, curr) => {
@@ -19,19 +19,19 @@ const Receipt = props => {
 
   return (
     <div className="checkout-receipt">
-      <div className="space-between">
+      <div className="has-space-between">
         <span>Subtotal</span>
         <span>{subtotalStr}</span>
       </div>
-      <div className="space-between">
+      <div className="has-space-between">
         <span>Shipping</span>
         <span>{shipping}</span>
       </div>
-      <div className="space-between estimated-tax">
+      <div className="has-space-between estimated-tax">
         <span>Estimated tax for: {zip}</span>
         <span>{salesTaxStr}</span>
       </div>
-      <div className="space-between">
+      <div className="has-space-between">
         <span>
           <strong>Total</strong>
         </span>
@@ -87,7 +87,7 @@ export const OrderSummary = props => {
               <th />
               <th>Item</th>
               <th className="has-text-align-right">Price</th>
-              <th className="has-text-align-right">Remove</th>
+              <th className="has-text-align-right" />
             </tr>
           </thead>
           <tbody>

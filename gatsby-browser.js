@@ -1,14 +1,14 @@
 import React from 'react'
-import { CheckoutContext } from './src/components/checkout-context'
-import { useCheckout } from './src/components/use-checkout'
+import { useCheckout, CheckoutContext } from './src/hooks/use-checkout'
 
 const CheckoutProvider = props => {
-  const { lineItems, removeLineItems, addLineItems } = useCheckout()
+  const { lineItems, removeLineItems, addLineItems, checkout } = useCheckout()
 
   const value = {
     addLineItems,
     removeLineItems,
-    lineItems
+    lineItems,
+    checkout
   }
 
   return (

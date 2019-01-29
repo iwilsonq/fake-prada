@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Slider from 'react-slick'
 import Layout from '../components/layout'
-import { CheckoutContext } from '../components/checkout-context'
+import { CheckoutContext } from '../hooks/use-checkout'
 
 const SIZES = [
   {

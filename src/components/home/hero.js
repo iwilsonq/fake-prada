@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import './style.scss'
 
 const Header = ({ siteTitle }) => (
   <section className="hero hero-bg">

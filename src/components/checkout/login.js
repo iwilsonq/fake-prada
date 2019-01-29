@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { TextInput } from './text-input'
+import { TextInput } from '../form/text-input'
 
 export const Login = props => {
   const [email, setEmail] = useState('')

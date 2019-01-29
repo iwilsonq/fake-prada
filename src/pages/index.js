@@ -1,6 +1,6 @@
 import React from 'react'
-import Hero from '../components/hero'
-import Midsection from '../components/midsection'
+import Hero from '../components/home/hero'
+import Midsection from '../components/home/midsection'
 import Layout from '../components/layout'
 
 const getQueryParams = location => {

@@ -1,8 +1,7 @@
 import React from 'react'
-import './style.scss'
-import microsoft from '../images/microsoft.jpg'
-import google from '../images/google_sign_expats.jpg'
-import android from '../images/bikes_silver_android.jpg'
+import microsoft from '../../images/microsoft.jpg'
+import google from '../../images/google_sign_expats.jpg'
+import android from '../../images/bikes_silver_android.jpg'
 
 const Midsection = () => (
   <section className="section">

@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { CheckoutContext } from '../hooks/use-checkout'
+
 import Layout from '../components/layout'
-import { OrderSummary } from '../components/order-summary'
-import { CustomerInformation } from '../components/customer-information'
-import { CheckoutAsGuest } from '../components/checkout-as-guest'
+import { OrderSummary } from '../components/checkout/order-summary'
+import { CheckoutAsGuest } from '../components/checkout/checkout-as-guest'
+import { CustomerInformation } from '../components/checkout/customer-information'
+import { ShippingMethod } from '../components/checkout/shipping-method'
+// import { ShippingMethod } from '../components/shipping-method'
 import { checkoutSteps } from '../constants/checkout'
-// import { Login } from '../components/login'
 
 const Breadcrumbs = ({ step }) => {
   if (!step || step === checkoutSteps.checkoutAsGuest) {
@@ -30,7 +33,7 @@ const Breadcrumbs = ({ step }) => {
         <button className="link-button">Shipping Method</button>
       </li>
       <li className={step === checkoutSteps.paymentMethod ? 'is-active' : ''}>
-        <button className="link-button">PaymentMethod</button>
+        <button className="link-button">Payment Method</button>
       </li>
     </nav>
   )
@@ -41,7 +44,9 @@ const CheckoutStep = ({ step, ...props }) => {
     case checkoutSteps.customerInformation:
       return <CustomerInformation {...props} />
     case checkoutSteps.shippingMethod:
+      return <ShippingMethod {...props} />
     case checkoutSteps.paymentMethod:
+      return <ShippingMethod {...props} />
     case checkoutSteps.checkoutAsGuest:
     default:
       return <CheckoutAsGuest {...props} />
@@ -49,6 +54,7 @@ const CheckoutStep = ({ step, ...props }) => {
 }
 
 const CheckoutPage = props => {
+  const { checkout } = useContext(CheckoutContext)
   const [checkoutStep, setCheckoutStep] = useState(
     checkoutSteps.checkoutAsGuest
   )
@@ -68,6 +74,7 @@ const CheckoutPage = props => {
             <CheckoutStep
               step={checkoutStep}
               setCheckoutStep={setCheckoutStep}
+              checkout={checkout}
             />
           </div>
         </div>

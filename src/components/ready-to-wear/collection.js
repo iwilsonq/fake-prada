@@ -1,6 +1,6 @@
 import React from 'react'
 import { Product } from './product'
-import { normalizeProduct } from '../utils'
+import { normalizeProduct } from '../../utils'
 
 export const Collection = props => {
   const products = props.collection.products.edges.map(normalizeProduct)
