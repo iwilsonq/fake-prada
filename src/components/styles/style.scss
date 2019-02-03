@@ -9,6 +9,8 @@
 @import './form.scss';
 @import './product.scss';
 @import './checkout.scss';
+@import './navbar.scss';
+@import './typography.scss';
 
 @font-face {
   font-family: 'GT Eesti Pro';
@@ -36,29 +38,10 @@ body {
 
 .hero-bg {
   display: flex;
-  background-image: url(../../images/h1b_hero.png);
+  background-image: url(../../images/h-1b_gang_back.png);
   background-repeat: no-repeat;
-  background-position: 70% 25%;
-
-  @media screen and (min-width: $widescreen) {
-    background-position: 60% 30%;
-    background-size: 100% auto;
-  }
-
-  @media screen and (max-width: $desktop) {
-    background-position: 70% 20%;
-    background-size: 100% auto;
-  }
-
-  @media screen and (max-width: $tablet) {
-    background-position: 60% 0%;
-    background-size: 100% auto;
-  }
-
-  @media screen and (max-width: $mobile) {
-    background-position: 60% 0%;
-    background-size: $mobile auto;
-  }
+  background-size: cover;
+  width: 100%;
 }
 
 .center {
@@ -94,6 +77,11 @@ body {
 
 .is-absolute {
   position: absolute;
+}
+
+.is-full-middle {
+  position: absolute;
+  left: calc(50% - 96px);
 }
 
 .is-fixed {
@@ -216,6 +204,10 @@ h1.hero-title {
   margin-top: 160px;
 }
 
+.mt-5px {
+  margin-top: 5px;
+}
+
 .hero-button {
   border-radius: 0px;
   font-weight: 600;
@@ -235,23 +227,56 @@ h1.hero-title {
   list-style: none !important;
 }
 
-.navbar-burger span {
-  height: 2px;
-  background-color: #fff;
+.midsection-1 {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .midsection-1 img {
-  height: 486px;
+  width: 85%;
+  margin: 0 auto;
 }
+
+.col-5-12 {
+  width: 42%;
+}
+
+.col-7-12 {
+  width: 58%;
+}
+
 .midsection-2 img {
   height: 520px;
 }
+
 .midsection-3 img {
   width: 601px;
 }
 
+.midsection-crossing {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.midsection-crossing img {
+  width: 446px;
+  height: 446px;
+}
+
 .mb-10 {
   margin-bottom: 10px;
+}
+
+.mb-128 {
+  margin-bottom: 128px;
+}
+
+.max-width-700 {
+  max-width: 700px;
 }
 
 article.flex-end {

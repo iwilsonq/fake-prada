@@ -1,0 +1,59 @@
+nav {
+  padding: 0 16px;
+}
+
+.navbar-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.25rem;
+  position: relative;
+  width: 3.25rem;
+  margin-left: auto;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.navbar-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.navbar-burger span {
+  height: 2px;
+  background-color: $black;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-mobile-menu {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0 16px;
+  background-color: $white;
+  transition: slidetop 2s ease-in-out;
+
+  .navbar-item {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .navbar-item:first-of-type {
+    border-top: 1px solid $black;
+    padding-top: 22px;
+  }
+
+  .navbar-item:last-of-type {
+    border-bottom: 1px solid $black;
+    padding-bottom: 18px;
+  }
+}

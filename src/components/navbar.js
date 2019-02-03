@@ -1,147 +1,121 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import locationSrc from '../../static/assets/location.svg'
-import shoppingbagSrc from '../../static/assets/shoppingbag.svg'
+import shoppingbagSrc from '../images/shoppingbag.svg'
 
-export const FullNavbar = () => (
-  <div>
-    <nav className="navbar has-background-black">
-      <div className="full-width">
-        <div className="is-hidden-mobile">
-          <div className="level">
-            <div className="level-left">
-              <span className="navbar-item has-text-white">
-                <span className="icon">
-                  <img src={locationSrc} alt="location marker" />
-                </span>
-                <span>Ships to: United States</span>
-              </span>
-            </div>
-            <div className="level-right has-text-white">
-              <span className="navbar-item has-text-white">
-                <span className="icon">
-                  <Link to="/checkout">
-                    <img src={shoppingbagSrc} alt="shopping bag" />
-                  </Link>
-                </span>
-              </span>
-            </div>
-          </div>
-          <div className="center">
-            <div className="navbar-brand">
-              <div className="navbar-item">
-                <Link to="/" className="has-text-white">
-                  <h1 className="hero-title">DENNIS XING</h1>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+const CloseIcon = () => {
+  return (
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 19 19"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.44118 2.44118L16.9332 16.9332"
+        stroke="#000"
+        stroke-width="2.5"
+        stroke-linecap="square"
+      />
+      <path
+        d="M17 2L2 17"
+        stroke="#000"
+        stroke-width="2.5"
+        stroke-linecap="square"
+      />
+    </svg>
+  )
+}
 
-        <div className="is-hidden-tablet is-flex justify-space-between">
-          <button
-            className="navbar-burger burger no-bg is-marginless"
-            aria-label="menu"
-            aria-expanded="false"
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </button>
-          <div className="center">
-            <div className="navbar-brand">
-              <div className="navbar-item">
-                <Link to="/" className="has-text-white">
-                  <h1 className="hero-title">DENNIS XING</h1>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="navbar-item has-text-white">
-              <span className="icon">
-                <Link to="/checkout">
-                  <img src={shoppingbagSrc} alt="shopping bag" />
-                </Link>
-              </span>
-            </div>
-          </div>
-        </div>
+const BurgerIcon = () => {
+  return (
+    <React.Fragment>
+      <span aria-hidden="true" />
+      <span aria-hidden="true" />
+      <span aria-hidden="true" />
+    </React.Fragment>
+  )
+}
 
-        <div className="center has-border-tb is-hidden-mobile">
+export const Navbar = () => {
+  const [mobileMenu, setMobileMenu] = useState(false)
+  return (
+    <nav className="navbar is-white is-fixed-top ">
+      <div className="has-space-between navbar-content">
+        <div className="is-flex is-hidden-mobile">
           <div className="navbar-item">
-            <Link to="/ready-to-wear" className="has-text-white">
-              Ready to Wear
-            </Link>
-          </div>
-          <div className="navbar-item">
-            <Link to="/streetwear-manifesto" className="has-text-white">
-              The Streetwear Manifesto
-            </Link>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-)
-
-export const CondensedNavbar = () => (
-  <nav className="navbar is-black is-fixed-top">
-    <div className="navbar-brand">
-      <div className="navbar-item">
-        <Link to="/" className="has-text-white">
-          <h1 className="is-uppercase is-size-3 navbar-brand-margin">
-            DENNIS XING
-          </h1>
-        </Link>
-      </div>
-      <div className="navbar-burger">
-        <button
-          className="navbar-burger burger no-bg"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </button>
-      </div>
-    </div>
-    <div className="navbar-menu">
-      <div className="has-space-between full-width">
-        <div className="is-flex ">
-          <div className="navbar-item">
-            <Link to="/ready-to-wear" className="has-text-white is-size-6">
+            <Link to="/ready-to-wear" className="has-text-black is-size-6">
               Ready to Wear
             </Link>
           </div>
           <div className="navbar-item">
             <Link
               to="/streetwear-manifesto"
-              className="has-text-white is-size-6"
+              className="has-text-black is-size-6"
             >
               The Streetwear Manifesto
             </Link>
           </div>
         </div>
-        <div className="navbar-item">
-          <span className="icon">
-            <Link to="/checkout">
-              <img src={shoppingbagSrc} alt="shopping bag" />
+        <div className="is-hidden-tablet">
+          <button
+            className="navbar-burger burger no-bg"
+            aria-label="menu"
+            aria-expanded="false"
+            onClick={() => setMobileMenu(!mobileMenu)}
+          >
+            {mobileMenu ? <CloseIcon /> : <BurgerIcon />}
+          </button>
+        </div>
+        {mobileMenu ? (
+          <div className="is-hidden-tablet">
+            <div className="navbar-mobile-menu">
+              <div className="navbar-item">
+                <Link to="/ready-to-wear" className="has-text-black is-size-6">
+                  Ready to Wear
+                </Link>
+              </div>
+              <div className="navbar-item">
+                <Link
+                  to="/streetwear-manifesto"
+                  className="has-text-black is-size-6"
+                >
+                  The Streetwear Manifesto
+                </Link>
+              </div>
+              <div className="navbar-item">
+                <Link to="/about" className="has-text-black is-size-6">
+                  About
+                </Link>
+              </div>
+            </div>
+          </div>
+        ) : null}
+        <div className="navbar-brand is-full-middle">
+          <div className="navbar-item">
+            <Link to="/" className="has-text-black">
+              <h1 className="is-uppercase is-size-3 navbar-brand-margin">
+                DENNIS XING
+              </h1>
             </Link>
-          </span>
+          </div>
+        </div>
+        <div className="is-flex">
+          <div className="navbar-item is-hidden-mobile">
+            <Link to="/about" className="has-text-black is-size-6">
+              About
+            </Link>
+          </div>
+          <div className="navbar-item">
+            <Link to="/checkout">
+              <div className="mt-5px">
+                <img src={shoppingbagSrc} alt="shopping bag" />
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-)
-
-export const Navbar = props => {
-  return props.fullNavbar ? (
-    <FullNavbar {...props} />
-  ) : (
-    <CondensedNavbar {...props} />
+    </nav>
   )
 }
 

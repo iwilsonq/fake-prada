@@ -68,7 +68,6 @@ const Footer = () => (
                       label="The Streetwear Manifesto"
                     />
                     <FooterLink to="/about" label="About" />
-                    <FooterLink to="/about" label="About" />
                   </ul>
                 </div>
                 <div className="column is-half-mobile is-one-quarter-tablet">
