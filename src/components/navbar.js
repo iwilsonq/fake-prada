@@ -40,7 +40,7 @@ const BurgerIcon = () => {
 export const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
   return (
-    <nav className="navbar is-white is-fixed-top ">
+    <nav className="navbar is-white is-fixed-top has-dropshadow">
       <div className="has-space-between navbar-content">
         <div className="is-flex is-hidden-mobile">
           <div className="navbar-item">
