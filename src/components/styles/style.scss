@@ -107,7 +107,6 @@ body {
   .social {
     margin-left: -0.75rem;
     margin-right: -0.75rem;
-    border-top: 1px solid $border;
     padding-top: 12px;
   }
 
@@ -237,23 +236,34 @@ h1.hero-title {
 
 .midsection-1 img {
   width: 85%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.col-5-12 {
-  width: 42%;
+.col-5-12-tablet {
+  @media screen and (min-width: $tablet) {
+    width: 42%;
+  }
 }
 
-.col-7-12 {
-  width: 58%;
+.col-7-12-tablet {
+  @media screen and (min-width: $tablet) {
+    width: 58%;
+  }
+}
+
+.col-1-2-mobile {
+  @media screen and (max-width: $tablet) {
+    width: 50%;
+  }
 }
 
 .midsection-2 img {
-  height: 520px;
+  width: 100%;
 }
 
 .midsection-3 img {
-  width: 601px;
+  width: 100%;
 }
 
 .midsection-crossing {
@@ -263,12 +273,20 @@ h1.hero-title {
   align-items: center;
 }
 .midsection-crossing img {
-  width: 446px;
-  height: 446px;
+  width: 50%;
+}
+
+.mh-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mb-10 {
   margin-bottom: 10px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
 }
 
 .mb-128 {

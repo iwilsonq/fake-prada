@@ -1,6 +1,11 @@
 p.big-lead {
   font-size: 70px;
   line-height: 80px;
+
+  @media screen and (max-width: $tablet) {
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 
 p.center {
@@ -10,6 +15,10 @@ p.center {
 .header-3 {
   font-size: 40px;
   font-weight: bold;
+
+  @media screen and (max-width: $tablet) {
+    font-size: 20px;
+  }
 }
 
 .is-right {
