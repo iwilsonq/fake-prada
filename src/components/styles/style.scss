@@ -29,19 +29,12 @@ body {
 }
 
 .hero {
+  margin-top: 55px;
   min-height: calc(74vh - 3.25rem);
 }
 
 .lower {
   padding-top: 20rem;
-}
-
-.hero-bg {
-  display: flex;
-  background-image: url(../../images/h-1b_gang_back.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
 }
 
 .center {
